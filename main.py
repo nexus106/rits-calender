@@ -1,6 +1,5 @@
 import pandas as pd
 
-pd.set_option('display.max_rows', 150)
 
 url = 'https://www.ritsumei.ac.jp/profile/info/calendar/'
 dfs = pd.read_html(url)
