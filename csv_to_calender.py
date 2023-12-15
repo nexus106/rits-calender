@@ -19,22 +19,24 @@ csv_path = 'gakubu-copy.csv'
 with open(csv_path, newline='', encoding='utf-8') as csvfile:
     reader = csv.DictReader(csvfile)
     for row in reader:
-        date = f'2023-{row["月"].zfill(2)}-{row["日"].zfill(2)}'
+        date = f'{row["年"]}-{row["月"].zfill(2)}-{row["日"].zfill(2)}'
         event_summary = row["行事"]
         event_description = "学年暦"
-        # event_description = f'曜日: {row["曜"]}'
 
         event = {
             'summary': event_summary,
             'description': event_description,
+            # 終日の予定なので時間指定はしない
             'start': {
-                'dateTime': f'{date}T00:00:00',
+                'date': date,
                 'timeZone': 'Asia/Tokyo',
             },
             'end': {
-                'dateTime': f'{date}T23:59:59',
+                'date': date,
                 'timeZone': 'Asia/Tokyo',
             },
+            # 終日
+            'transparency': 'transparent',
         }
 
         service.events().insert(calendarId=calendar_id, body=event).execute()
