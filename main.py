@@ -3,14 +3,14 @@ import pandas as pd
 
 def df_year_csv(df, name):
     # 基本は2023年で、1月2月3月のときは2024年の列を追加
-    df['年'] = 2023
-    df.loc[df['月'].isin([1, 2, 3]), '年'] = 2024
+    df["年"] = 2023
+    df.loc[df["月"].isin([1, 2, 3]), "年"] = 2024
     # 順番を整理
-    df = df[['年', '月', '日', '曜', '行事']]
+    df = df[["年", "月", "日", "曜", "行事"]]
     df.to_csv(name + ".csv", index=False)
 
 
-url = 'https://www.ritsumei.ac.jp/profile/info/calendar/'
+url = "https://www.ritsumei.ac.jp/profile/info/calendar/"
 dfs = pd.read_html(url)
 
 # 学部
