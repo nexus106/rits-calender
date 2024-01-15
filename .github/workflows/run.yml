@@ -1,7 +1,23 @@
-name: Make csv fiel & Add schedule to google calender
-on: [push]
+name: Make csv file & Add schedule to google calender
+on:
+  push:
+  workflow_dispatch:
+
 jobs:
-  check-bats-version:
+  Make csv file & Add schedule to google calender:
     runs-on: ubuntu-latest
-    steps:
-      - run: echo "this is pen"
+  steps:
+        - uses: actions/checkout@v2
+        - name: Setup Python
+          uses: actions/setup-python@v2
+          with:
+            python-version: '3.12.0'
+            architecture: 'x64'
+        - name: Get Python version
+          run: python -V
+        - name: Install dependencies
+          run: pip install -r requirements.txt
+        - name: Make csv file
+          run: python main.py
+        - name: Add schedule to google calender
+          run: python csv_to_calander.py

@@ -2,6 +2,7 @@ import pandas as pd
 
 THIS_YEAR = 2023
 
+
 def df_year_csv(df, name):
     # 基本は今年で、1月2月3月のときは翌年の列を追加
     df["年"] = THIS_YEAR
@@ -9,6 +10,7 @@ def df_year_csv(df, name):
     # 順番を整理
     df = df[["年", "月", "日", "曜", "行事"]]
     df.to_csv(name + ".csv", index=False)
+
 
 # htmlのtableをpandasのDataFrameとして読み込み
 url = "https://www.ritsumei.ac.jp/profile/info/calendar/"
