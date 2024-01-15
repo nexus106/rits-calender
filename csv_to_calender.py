@@ -26,6 +26,7 @@ with open(csv_path, newline="", encoding="utf-8") as csvfile:
         date = f'{row["年"]}-{row["月"].zfill(2)}-{row["日"].zfill(2)}'
         event_summary = row["行事"]
         event_description = "学年暦"
+        # APIにデータを渡すための整形
 
         event = {
             "summary": event_summary,
