@@ -6,4 +6,3 @@
 main.pyでpandasのtableスクレイピング機能を使い、csvファイルに書き出す  
 ↓  
 csv_to_calender.pyでcscファイルを読み取り、Google Calender APIを通じて登録  
-Pushされたタイミングに、Github Actions上でプログラムを実行しています。
