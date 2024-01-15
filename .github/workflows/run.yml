@@ -7,8 +7,7 @@ jobs:
   Make csv file & Add schedule to google calender:
     runs-on: ubuntu-latest
   steps:
-        - name: test
-          run: echo "hello"
+        run: echo "hello"
         # - uses: actions/checkout@v2
         # - name: Setup Python
         #   uses: actions/setup-python@v2
